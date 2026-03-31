@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  North Bay Grotesk — fonte premium para títulos.
+  Coloque os arquivos em: public/assets/fonts/
+  Formatos esperados: NorthBayGrotesk.woff2, NorthBayGrotesk.woff
+*/
+@font-face {
+  font-family: 'North Bay Grotesk';
+  src: url('/assets/fonts/SchmalfetteCP.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #0A0A0A;
+    color: #ffffff;
+  }
+
+  body {
+    @apply font-body antialiased;
+    background-color: #0A0A0A;
+    overflow-x: hidden;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* ─── Glass Form ─────────────────────────────────────────────── */
+.glass-form-wrapper {
+  position: relative;
+  padding: 1px;
+  /* Borda degradê: laranja vibrante no topo-esquerda → transparente */
+  background: linear-gradient(
+    135deg,
+    rgba(252, 70, 18, 0.9) 0%,
+    rgba(252, 70, 18, 0.3) 35%,
+    rgba(255,255,255,0.06) 60%,
+    transparent 100%
+  );
+}
+
+.glass-form-inner {
+  position: relative;
+  padding: 2rem;
+  /* Fundo escuro com leve tint — garante contraste com os inputs */
+  background: rgba(10, 10, 10, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Brilho ambiente laranja sutil no canto */
+.glass-form-inner::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(252, 70, 18, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glass-form-inner > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Inputs premium dentro do glass */
+.glass-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.875rem;
+  padding: 0.85rem 1rem;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.glass-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.glass-input:focus {
+  border-color: rgba(252, 70, 18, 0.8);
+  background: rgba(252, 70, 18, 0.07);
+  box-shadow: 0 0 0 3px rgba(252, 70, 18, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* ─── CTA Button Premium ─────────────────────────────────────── */
+.cta-premium {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Shimmer sweep ao hover */
+.cta-premium::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 100%
+  );
+  transform: skewX(-18deg);
+  pointer-events: none;
+  transition: left 0s;
+}
+
+.cta-premium:hover::after {
+  left: 140%;
+  transition: left 0.55s ease;
+}
+
+/* Glow pulsante no botão de submit */
+@keyframes cta-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(252, 70, 18, 0.0),
+                0 4px 24px rgba(252, 70, 18, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(252, 70, 18, 0.0),
+                0 4px 32px rgba(252, 70, 18, 0.6);
+  }
+}
+
+.cta-glow {
+  animation: cta-pulse 2.4s ease-in-out infinite;
+}
+
+/* Respeita prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .cta-premium::after { display: none; }
+  .cta-glow { animation: none; box-shadow: 0 4px 24px rgba(252, 70, 18, 0.35); }
+}

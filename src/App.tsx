@@ -1,0 +1,55 @@
+import { useEffect } from 'react'
+import Lenis from 'lenis'
+import DotGrid from './components/ui/DotGrid'
+import Hero from './components/sections/Hero'
+import PorQue from './components/sections/PorQue'
+import Mecanismo from './components/sections/Mecanismo'
+import Sobre from './components/sections/Sobre'
+import FAQ from './components/sections/FAQ'
+import Rodape from './components/sections/Rodape'
+
+export default function App() {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    })
+
+    function raf(time: number) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+    return () => lenis.destroy()
+  }, [])
+
+  return (
+    <div className="relative bg-[#0A0A0A]">
+      {/* DotGrid — fundo fixo em toda a página */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <DotGrid
+          dotSize={4}
+          gap={12}
+          baseColor="#141414"
+          activeColor="#551402"
+          proximity={160}
+          shockRadius={200}
+          shockStrength={1}
+          resistance={1250}
+          returnDuration={1}
+        />
+      </div>
+
+      {/* Conteúdo da página acima do grid */}
+      <main className="relative z-10 text-white">
+        <Hero />
+        <PorQue />
+        <Mecanismo />
+        <Sobre />
+        <FAQ />
+        <Rodape />
+      </main>
+    </div>
+  )
+}
