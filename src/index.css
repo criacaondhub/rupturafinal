@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=The+Nautigal:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -154,4 +156,23 @@
 @media (prefers-reduced-motion: reduce) {
   .cta-premium::after { display: none; }
   .cta-glow { animation: none; box-shadow: 0 4px 24px rgba(252, 70, 18, 0.35); }
+}
+
+/* ─── Signature Write Animation ─────────────────────────────── */
+.sig-text {
+  stroke-dasharray: 4000;
+  stroke-dashoffset: 4000;
+  fill-opacity: 0;
+}
+.sig-text.sig-animate {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 2.6s cubic-bezier(0.4, 0, 0.2, 1);
+  fill-opacity: 1;
+  /* fill aparece só quando o traço termina */
+  transition: stroke-dashoffset 2.6s cubic-bezier(0.4, 0, 0.2, 1),
+              fill-opacity 0s ease 2.6s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sig-text { stroke-dashoffset: 0; fill-opacity: 1; }
+  .sig-text.sig-animate { transition: none; }
 }

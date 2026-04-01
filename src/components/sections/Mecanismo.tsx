@@ -35,35 +35,34 @@ const boxes = [
 
 export default function Mecanismo() {
   return (
-    <section
-      className="relative bg-transparent py-20 md:py-32 px-6 overflow-hidden"
-      // Imagem de background será inserida posteriormente
-      // style={{ backgroundImage: 'url(assets/mecanismo-bg.webp)', backgroundSize: 'cover', backgroundPosition: 'center' }}
-    >
-      {/* Overlay sutil para legibilidade quando o bg for inserido */}
-      <div className="absolute inset-0 bg-transparent pointer-events-none" />
+    <section className="relative bg-transparent overflow-hidden">
 
-      <div className="relative z-10 max-w-xl md:ml-auto md:mr-[8vw]">
+      {/* Imagem — full section background */}
+      <img
+        src="assets/mecanismo-img.webp"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+      />
 
-        {/* Título */}
-        <SectionReveal direction="right">
+      {/* Conteúdo — lado esquerdo */}
+      <div className="relative z-10 py-20 md:py-32 pl-6 md:pl-[6vw] pr-6 max-w-[42%]">
+
+        <SectionReveal direction="left">
           <h2 className="font-title text-[8.5vw] md:text-[3.54vw] leading-[1.1] mb-4 text-balance uppercase">
             Na <span className="text-primary">Ruptura Final</span> você entende o mecanismo e como ajustar as
             engrenagens.
           </h2>
         </SectionReveal>
 
-        {/* Subtítulo */}
-        <SectionReveal delay={0.1} direction="right">
+        <SectionReveal delay={0.1} direction="left">
           <p className="font-body text-white/60 text-base md:text-[1vw] mb-10">
             Uma imersão online que vai pôr em "xeque" quem você almeja ser:
           </p>
         </SectionReveal>
 
-        {/* Boxes */}
         <div className="flex flex-col gap-4 mb-8">
           {boxes.map((box, i) => (
-            <SectionReveal key={i} delay={0.15 + i * 0.1} direction="right">
+            <SectionReveal key={i} delay={0.15 + i * 0.1} direction="left">
               <div className="flex items-start gap-4 bg-background/60 border border-border p-5">
                 <i className={`${box.icon} text-primary text-xl leading-none mt-1 flex-shrink-0`} />
                 <p className="font-body text-white/75 text-sm md:text-[0.85vw] leading-relaxed">{box.text}</p>
@@ -72,8 +71,7 @@ export default function Mecanismo() {
           ))}
         </div>
 
-        {/* Disclaimer */}
-        <SectionReveal delay={0.5} direction="right">
+        <SectionReveal delay={0.5} direction="left">
           <div className="bg-primary/10 border border-primary/30 p-5 mb-10">
             <p className="font-body text-white/80 text-sm md:text-[0.85vw] leading-relaxed italic">
               "A disciplina, a resiliência, o confronto e o desconforto tem o poder de mudar sua vida, seus resultados
@@ -82,8 +80,7 @@ export default function Mecanismo() {
           </div>
         </SectionReveal>
 
-        {/* CTA */}
-        <SectionReveal delay={0.6} direction="right">
+        <SectionReveal delay={0.6} direction="left">
           <CTAButton href="#hero">Garantir minha vaga na imersão</CTAButton>
         </SectionReveal>
 

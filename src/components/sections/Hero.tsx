@@ -15,14 +15,9 @@ export default function Hero() {
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
 
-      {/* Overlay esquerda: escurece a área do conteúdo para legibilidade */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/85 via-40% to-transparent" />
-
-      {/* Overlay base: garante contraste mínimo em telas menores */}
-      <div className="absolute inset-0 bg-[#0A0A0A]/40 md:bg-transparent" />
 
       {/* Conteúdo */}
-      <div className="relative z-10 flex flex-col justify-center px-6 py-16 md:px-[5vw] md:py-24 w-full md:w-[52%]">
+      <div className="relative z-10 flex flex-col justify-center px-6 py-16 md:px-[5vw] md:py-24 w-full md:w-[48%]">
 
         {/* Pill */}
         <SectionReveal delay={0.1}>
