@@ -5,6 +5,7 @@ type Part = { text: string; bold?: boolean };
 interface HeroContent {
   headline: string;
   subtitle: Part[];
+  subtitleMobile?: Part[];
 }
 
 export const heroVariants: Record<1 | 2 | 3, HeroContent> = {
@@ -12,6 +13,11 @@ export const heroVariants: Record<1 | 2 | 3, HeroContent> = {
     headline: 'Sua motivação dá início às mudanças. Sua estrutura interna explica porque você não continua.',
     subtitle: [
       { text: 'Um hábito leva em média 3 meses para se formar. A maioria desiste antes de 30 dias porque constroem comportamentos sobre emoção em vez de estrutura. Na ' },
+      { text: 'Ruptura Final', bold: true },
+      { text: ' te mostro o caminho para sair desse ciclo de vez.' },
+    ],
+    subtitleMobile: [
+      { text: 'A maioria desiste antes de 30 dias porque constroem comportamentos sobre emoção em vez de estrutura. Na ' },
       { text: 'Ruptura Final', bold: true },
       { text: ' te mostro o caminho para sair desse ciclo de vez.' },
     ],

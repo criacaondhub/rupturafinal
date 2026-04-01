@@ -69,14 +69,14 @@ const DotGrid: React.FC<DotGridProps> = ({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const dotsRef = useRef<Dot[]>([]);
   const pointerRef = useRef({
-    x: 0,
-    y: 0,
+    x: -99999,
+    y: -99999,
     vx: 0,
     vy: 0,
     speed: 0,
     lastTime: 0,
-    lastX: 0,
-    lastY: 0
+    lastX: -99999,
+    lastY: -99999
   });
 
   const baseRgb = useMemo(() => hexToRgb(baseColor), [baseColor]);
@@ -270,6 +270,9 @@ const DotGrid: React.FC<DotGridProps> = ({
         }
       }
     };
+
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+    if (isTouch) return;
 
     const throttledMove = throttle(onMove, 50);
     window.addEventListener('mousemove', throttledMove, { passive: true });

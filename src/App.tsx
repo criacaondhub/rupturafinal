@@ -44,10 +44,15 @@ export default function App() {
       {/* Conteúdo da página acima do grid */}
       <main className="relative z-10 text-white">
         <Hero />
+        <div className="md:hidden h-px mx-10 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
         <PorQue />
+        <div className="md:hidden h-px mx-10 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
         <Mecanismo />
+        <div className="md:hidden h-px mx-10 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
         <Sobre />
+        <div className="md:hidden h-px mx-10 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
         <FAQ />
+        <div className="md:hidden h-px mx-10 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
         <Rodape />
       </main>
     </div>

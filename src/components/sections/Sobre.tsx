@@ -4,8 +4,8 @@ import SignatureToledo from '../ui/SignatureToledo'
 
 export default function Sobre() {
   return (
-    <section className="bg-transparent py-20 md:py-32 px-6 overflow-hidden">
-      <div className="max-w-[78vw] mx-auto flex flex-col md:flex-row gap-12 md:gap-16 items-start">
+    <section className="bg-transparent py-14 md:py-32 px-6 overflow-hidden">
+      <div className="max-w-full md:max-w-[78vw] mx-auto flex flex-col md:flex-row gap-12 md:gap-16 items-start">
 
         {/* Foto — lado esquerdo (placeholder até o asset chegar) */}
         <SectionReveal direction="left" className="w-full md:w-[38%] flex-shrink-0">
@@ -27,25 +27,25 @@ export default function Sobre() {
         </SectionReveal>
 
         {/* Conteúdo — lado direito */}
-        <div className="flex flex-col gap-6 md:gap-8 text-left max-w-[40vw]">
+        <div className="flex flex-col gap-6 md:gap-8 text-left w-full md:max-w-[40vw]">
 
           {/* Subtítulo */}
           <SectionReveal delay={0.1} direction="right">
-            <p className="font-body text-primary text-sm font-semibold uppercase tracking-widest">
-              Quem está por trás da imersão "Ruptura Final"?
+            <p className="font-body text-primary text-sm font-semibold uppercase tracking-widest text-center md:text-left">
+              Quem está por trás<br className="md:hidden" /> da imersão "Ruptura Final"?
             </p>
           </SectionReveal>
 
           {/* Citação — título */}
           <SectionReveal delay={0.2} direction="right">
-            <h2 className="font-title text-[8.5vw] md:text-[3.54vw] leading-[1.1] text-balance uppercase italic">
+            <h2 className="font-title text-[8.5vw] md:text-[3.54vw] leading-[1.1] text-balance uppercase italic text-center md:text-left">
               "Todo dia eu <span className="text-primary">preciso provar para mim mesmo</span> que ainda sou capaz de fazer o que é difícil."
             </h2>
           </SectionReveal>
 
           {/* Corpo */}
           <SectionReveal delay={0.3} direction="right">
-            <div className="font-body text-white/70 text-base md:text-[0.95vw] leading-relaxed space-y-5 text-justify">
+            <div className="font-body text-white/70 text-base md:text-[0.95vw] leading-relaxed space-y-6 md:space-y-5 text-center md:text-justify tracking-tight md:tracking-normal">
               <p>
                 Minha experiência não é de sucesso ininterrupto. Fui atleta, programador, empreendedor, mas quebrei,
                 passei por falência e separação, precisando me reconstruir do zero.
@@ -70,7 +70,7 @@ export default function Sobre() {
 
           {/* CTA */}
           <SectionReveal delay={0.45} direction="right">
-            <CTAButton href="#hero">Me inscrever na Ruptura Final</CTAButton>
+            <CTAButton href="#hero" className="w-full md:w-auto">Me inscrever na<br className="md:hidden" /> Ruptura Final</CTAButton>
           </SectionReveal>
 
         </div>

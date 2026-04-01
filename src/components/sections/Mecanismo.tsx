@@ -45,17 +45,17 @@ export default function Mecanismo() {
       />
 
       {/* Conteúdo — lado esquerdo */}
-      <div className="relative z-10 py-20 md:py-32 pl-6 md:pl-[6vw] pr-6 max-w-[42%]">
+      <div className="relative z-10 py-14 md:py-32 pl-6 md:pl-[6vw] pr-6 w-full md:max-w-[42%]">
 
         <SectionReveal direction="left">
-          <h2 className="font-title text-[8.5vw] md:text-[3.54vw] leading-[1.1] mb-4 text-balance uppercase">
+          <h2 className="font-title text-[8.5vw] md:text-[3.54vw] leading-[1.1] mb-4 text-balance uppercase text-center md:text-left">
             Na <span className="text-primary">Ruptura Final</span> você entende o mecanismo e como ajustar as
             engrenagens.
           </h2>
         </SectionReveal>
 
         <SectionReveal delay={0.1} direction="left">
-          <p className="font-body text-white/60 text-base md:text-[1vw] mb-10">
+          <p className="font-body text-white/60 text-base md:text-[1vw] mb-10 text-center md:text-left">
             Uma imersão online que vai pôr em "xeque" quem você almeja ser:
           </p>
         </SectionReveal>
@@ -72,8 +72,8 @@ export default function Mecanismo() {
         </div>
 
         <SectionReveal delay={0.5} direction="left">
-          <div className="bg-primary/10 border border-primary/30 p-5 mb-10">
-            <p className="font-body text-white/80 text-sm md:text-[0.85vw] leading-relaxed italic">
+          <div className="bg-primary/10 border border-primary/30 p-5 mb-10 backdrop-blur-md">
+            <p className="font-body text-white/80 text-base md:text-[0.85vw] leading-snug md:leading-relaxed italic text-center md:text-left">
               "A disciplina, a resiliência, o confronto e o desconforto tem o poder de mudar sua vida, seus resultados
               e todas as áreas da sua vida."
             </p>
@@ -81,7 +81,7 @@ export default function Mecanismo() {
         </SectionReveal>
 
         <SectionReveal delay={0.6} direction="left">
-          <CTAButton href="#hero">Garantir minha vaga na imersão</CTAButton>
+          <CTAButton href="#hero" className="w-full md:w-auto">Garantir minha vaga<br className="md:hidden" /> na imersão</CTAButton>
         </SectionReveal>
 
       </div>

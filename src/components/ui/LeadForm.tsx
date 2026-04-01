@@ -105,7 +105,7 @@ export default function LeadForm() {
           </div>
 
           <CTAButton type="submit" className="w-full mt-2 cta-glow" glow>
-            {submitting ? 'Aguarde...' : 'Garantir minha vaga na Ruptura Final'}
+            {submitting ? 'Aguarde...' : <>Garantir minha vaga<br className="md:hidden" /> na Ruptura Final</>}
           </CTAButton>
 
           <p className="text-white/35 text-xs font-body text-center leading-relaxed pt-1">

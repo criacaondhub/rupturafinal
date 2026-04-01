@@ -49,7 +49,7 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null)
 
   return (
-    <section className="bg-transparent py-20 md:py-32 px-6">
+    <section className="bg-transparent py-14 md:py-32 px-6">
       <div className="max-w-2xl mx-auto">
 
         {/* Título */}
