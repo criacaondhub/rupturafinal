@@ -1,4 +1,5 @@
-import { useState, FormEvent } from 'react'
+import { useState, FormEvent, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import CTAButton from './CTAButton'
 
 interface FormData {
@@ -28,49 +29,114 @@ function validateEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }
 
-function SuccessModal({ onClose }: { onClose: () => void }) {
+const COUNTDOWN = 3
+const RADIUS = 28
+const CIRCUMFERENCE = 2 * Math.PI * RADIUS
+
+interface SuccessModalProps {
+  lead: { nome: string; email: string; whatsapp: string }
+  onRedirect: () => void
+}
+
+function SuccessModal({ lead, onRedirect }: SuccessModalProps) {
+  const [count, setCount] = useState(COUNTDOWN)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCount((c) => {
+        if (c <= 1) {
+          clearInterval(interval)
+          onRedirect()
+          return 0
+        }
+        return c - 1
+      })
+    }, 1000)
+    return () => clearInterval(interval)
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const dashoffset = CIRCUMFERENCE * (count / COUNTDOWN)
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center px-6"
-      style={{ background: 'rgba(0,0,0,0.82)' }}
-      onClick={onClose}
+      style={{ background: 'rgba(0,0,0,0.88)' }}
     >
       <div
         className="relative w-full max-w-sm p-px"
         style={{
           background: 'linear-gradient(135deg, rgba(34,197,94,0.9) 0%, rgba(34,197,94,0.3) 40%, rgba(255,255,255,0.06) 70%, transparent 100%)',
         }}
-        onClick={(e) => e.stopPropagation()}
       >
         <div
-          className="flex flex-col items-center gap-5 px-8 py-10 text-center"
-          style={{ background: 'rgba(10,10,10,0.92)', backdropFilter: 'blur(20px)' }}
+          className="flex flex-col items-center gap-6 px-8 py-10 text-center"
+          style={{ background: 'rgba(10,10,10,0.94)', backdropFilter: 'blur(20px)' }}
         >
-          {/* Ícone de check */}
+          {/* Check grande */}
           <div
-            className="flex items-center justify-center w-16 h-16 rounded-full"
-            style={{ background: 'rgba(34,197,94,0.12)', border: '1.5px solid rgba(34,197,94,0.4)' }}
+            className="flex items-center justify-center w-20 h-20 rounded-full"
+            style={{ background: 'rgba(34,197,94,0.12)', border: '2px solid rgba(34,197,94,0.5)' }}
           >
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgb(34,197,94)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="rgb(34,197,94)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="20 6 9 17 4 12" />
             </svg>
           </div>
 
+          {/* Título + subtítulo */}
           <div className="flex flex-col gap-2">
-            <h3 className="font-title text-2xl text-white uppercase" style={{ color: 'rgb(34,197,94)' }}>
-              Inscrição confirmada!
+            <h3 className="font-title text-2xl uppercase" style={{ color: 'rgb(34,197,94)' }}>
+              FORMULÁRIO ENVIADO COM SUCESSO
             </h3>
             <p className="font-body text-white/70 text-sm leading-relaxed">
-              Você está inscrito na <strong className="text-white">Ruptura Final</strong>.<br />
-              Fique de olho no seu WhatsApp e e-mail.
+              Você será redirecionado para entrar no{' '}
+              <strong className="text-white">Grupo VIP</strong> em{' '}
+              <strong className="text-white">{count} segundo{count !== 1 ? 's' : ''}</strong>
             </p>
           </div>
 
+          {/* Countdown circular */}
+          <svg width="72" height="72" viewBox="0 0 72 72" style={{ transform: 'rotate(-90deg)' }}>
+            {/* Trilha */}
+            <circle
+              cx="36" cy="36" r={RADIUS}
+              fill="none"
+              stroke="rgba(34,197,94,0.15)"
+              strokeWidth="4"
+            />
+            {/* Progresso */}
+            <circle
+              cx="36" cy="36" r={RADIUS}
+              fill="none"
+              stroke="rgb(34,197,94)"
+              strokeWidth="4"
+              strokeLinecap="round"
+              strokeDasharray={CIRCUMFERENCE}
+              strokeDashoffset={dashoffset}
+              style={{ transition: 'stroke-dashoffset 0.9s linear' }}
+            />
+            {/* Número no centro */}
+            <text
+              x="36" y="36"
+              textAnchor="middle"
+              dominantBaseline="central"
+              fill="white"
+              fontSize="20"
+              fontWeight="700"
+              style={{ transform: 'rotate(90deg)', transformOrigin: '36px 36px', fontFamily: 'inherit' }}
+            >
+              {count}
+            </text>
+          </svg>
+
+          {/* Fallback CTA */}
           <button
-            onClick={onClose}
-            className="font-body text-xs text-white/40 hover:text-white/70 transition-colors pt-1"
+            onClick={onRedirect}
+            className="font-body text-xs underline underline-offset-2 transition-colors"
+            style={{ color: 'rgba(34,197,94,0.7)' }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = 'rgb(34,197,94)')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(34,197,94,0.7)')}
           >
-            Fechar
+            Caso você não seja redirecionado, clique aqui
           </button>
         </div>
       </div>
@@ -79,11 +145,13 @@ function SuccessModal({ onClose }: { onClose: () => void }) {
 }
 
 export default function LeadForm() {
+  const navigate = useNavigate()
   const [data, setData] = useState<FormData>({ nome: '', email: '', whatsapp: '' })
   const [errors, setErrors] = useState<FormErrors>({})
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState(false)
   const [success, setSuccess] = useState(false)
+  const [successPayload, setSuccessPayload] = useState<{ nome: string; email: string; whatsapp: string } | null>(null)
 
   function validate(): FormErrors {
     const errs: FormErrors = {}
@@ -123,6 +191,7 @@ export default function LeadForm() {
           body:    JSON.stringify(payload),
         }),
       ])
+      setSuccessPayload(payload)
       setSuccess(true)
     } catch {
       setSubmitError(true)
@@ -132,7 +201,14 @@ export default function LeadForm() {
 
   return (
     <>
-      {success && <SuccessModal onClose={() => setSuccess(false)} />}
+      {success && successPayload && (
+        <SuccessModal
+          lead={successPayload}
+          onRedirect={() =>
+            navigate('/obrigado', { state: successPayload })
+          }
+        />
+      )}
 
       <div className="glass-form-wrapper w-full">
         <div className="glass-form-inner">

@@ -1,8 +1,11 @@
 import { useEffect, useState, lazy, Suspense } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import Lenis from 'lenis'
 
 // Lazy: GSAP + InertiaPlugin só são baixados em desktop
 const DotGrid = lazy(() => import('./components/ui/DotGrid'))
+const Obrigado = lazy(() => import('./pages/Obrigado'))
+
 import Hero from './components/sections/Hero'
 import PorQue from './components/sections/PorQue'
 import Mecanismo from './components/sections/Mecanismo'
@@ -10,7 +13,7 @@ import Sobre from './components/sections/Sobre'
 import FAQ from './components/sections/FAQ'
 import Rodape from './components/sections/Rodape'
 
-export default function App() {
+function LandingPage() {
   const [isDesktop] = useState(() =>
     typeof window !== 'undefined' && window.matchMedia('(min-width: 768px)').matches
   )
@@ -66,5 +69,21 @@ export default function App() {
         <Rodape />
       </main>
     </div>
+  )
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route
+        path="/obrigado"
+        element={
+          <Suspense fallback={null}>
+            <Obrigado />
+          </Suspense>
+        }
+      />
+    </Routes>
   )
 }
