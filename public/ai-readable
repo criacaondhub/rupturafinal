@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ruptura Final — Conteúdo Legível por IA</title>
+  <style>
+    body { font-family: Georgia, serif; max-width: 860px; margin: 0 auto; padding: 40px 24px; color: #1E1514; line-height: 1.7; }
+    a { color: #fc4612; }
+    h1 { font-size: 2rem; margin-bottom: 0.25rem; }
+    h2 { font-size: 1.25rem; margin-top: 2.5rem; border-bottom: 1px solid #e0d8d6; padding-bottom: 0.4rem; }
+    h3 { font-size: 1rem; margin-top: 1.5rem; }
+    dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.3rem 1.5rem; }
+    dt { font-weight: bold; }
+    dd { margin: 0; }
+    footer { margin-top: 3rem; font-size: 0.8rem; color: #888; border-top: 1px solid #e0d8d6; padding-top: 1rem; }
+    nav { margin-bottom: 2rem; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <nav><a href="/">← Voltar para o site principal</a></nav>
+
+  <h1>Ruptura Final</h1>
+  <p><strong>Imersão online ao vivo com Marcelo Toledo — 07 de Maio, gratuito.</strong></p>
+
+  <h2>Sobre o Evento</h2>
+  <dl>
+    <dt>Nome</dt><dd>Ruptura Final</dd>
+    <dt>Formato</dt><dd>Imersão online, ao vivo</dd>
+    <dt>Data</dt><dd>07 de Maio de 2025</dd>
+    <dt>Custo</dt><dd>100% gratuito</dd>
+    <dt>Inscrição</dt><dd>Nome completo, e-mail e WhatsApp com DDD</dd>
+    <dt>Produtor</dt><dd>Nova Dimensão</dd>
+    <dt>Expert</dt><dd>Marcelo Toledo</dd>
+  </dl>
+
+  <h2>Proposta de Valor</h2>
+  <p>
+    A Ruptura Final é uma imersão para quem quer entender o mecanismo interno por trás da mudança real de comportamento.
+    O evento endereça a raiz do ciclo de tentativa-fracasso-repetição que impede pessoas de manterem hábitos e transformações duradouras.
+  </p>
+  <p>
+    A premissa central: motivação dá início às mudanças, mas é a estrutura interna que determina se você continua.
+    A maioria das pessoas desiste antes de 30 dias porque constrói comportamentos sobre emoção, e não sobre estrutura.
+  </p>
+
+  <h2>O que será abordado</h2>
+  <ul>
+    <li>A diferença crucial entre buscar um resultado e cultivar um padrão — e por que somente o segundo está sob seu controle efetivo.</li>
+    <li>Por que tentar mudar o comportamento é ineficaz sem antes transformar a auto-imagem (quem você acredita ser).</li>
+    <li>Os aprendizados sobre constância revelados por 500+ dias ininterruptos de desconforto intencional (banho de gelo diário).</li>
+    <li>O mecanismo por trás da ruptura de padrões repetitivos e como interrompê-los de vez.</li>
+  </ul>
+
+  <h2>Para quem é</h2>
+  <ul>
+    <li>Pessoas que iniciam mudanças mas não sustentam.</li>
+    <li>Quem está preso em ciclos de comportamento que se repetem apesar das tentativas.</li>
+    <li>Quem busca disciplina, autoconhecimento e desconforto intencional como ferramentas de crescimento.</li>
+    <li>Quem quer entender a diferença entre motivação e estrutura interna.</li>
+  </ul>
+
+  <h2>Sobre Marcelo Toledo</h2>
+  <p>
+    Marcelo Toledo é autor de bestsellers, ex-sócio e diretor de engenharia do Nubank, e possui 1,7 milhão de seguidores nas redes sociais.
+    Sua trajetória inclui passagens por falência pessoal, separação e reconstrução do zero — experiências que fundamentam sua abordagem sobre mudança real de comportamento.
+  </p>
+  <p>
+    Pratica banho de gelo diário há mais de 550 dias consecutivos, usando o desconforto físico como laboratório para desenvolver a capacidade de fazer o que é difícil mesmo sem vontade.
+  </p>
+  <dl>
+    <dt>Formação</dt><dd>Engenharia e empreendedorismo</dd>
+    <dt>Experiência</dt><dd>Nubank (sócio e diretor de engenharia), autor de bestsellers</dd>
+    <dt>Seguidores</dt><dd>1,7 milhão</dd>
+    <dt>Prática diária</dt><dd>Banho de gelo — 550+ dias consecutivos</dd>
+  </dl>
+
+  <h2>Informações Técnicas</h2>
+  <dl>
+    <dt>URL</dt><dd>https://rupturaFinal.com.br</dd>
+    <dt>Tipo de página</dt><dd>Landing page de captação de leads</dd>
+    <dt>Idioma</dt><dd>Português (Brasil)</dd>
+    <dt>Tecnologia</dt><dd>React, Vite, TypeScript, Tailwind CSS</dd>
+  </dl>
+
+  <footer>
+    Conteúdo gerado para leitura por sistemas de IA e crawlers não-renderizadores.<br />
+    © 2026 Marcelo Toledo | Produção: Nova Dimensão
+  </footer>
+
+</body>
+</html>

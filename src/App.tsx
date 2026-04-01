@@ -1,6 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useState, lazy, Suspense } from 'react'
 import Lenis from 'lenis'
-import DotGrid from './components/ui/DotGrid'
+
+// Lazy: GSAP + InertiaPlugin só são baixados em desktop
+const DotGrid = lazy(() => import('./components/ui/DotGrid'))
 import Hero from './components/sections/Hero'
 import PorQue from './components/sections/PorQue'
 import Mecanismo from './components/sections/Mecanismo'
@@ -9,6 +11,10 @@ import FAQ from './components/sections/FAQ'
 import Rodape from './components/sections/Rodape'
 
 export default function App() {
+  const [isDesktop] = useState(() =>
+    typeof window !== 'undefined' && window.matchMedia('(min-width: 768px)').matches
+  )
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -26,20 +32,24 @@ export default function App() {
 
   return (
     <div className="relative bg-[#0A0A0A]">
-      {/* DotGrid — fundo fixo em toda a página */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <DotGrid
-          dotSize={4}
-          gap={12}
-          baseColor="#141414"
-          activeColor="#551402"
-          proximity={160}
-          shockRadius={200}
-          shockStrength={1}
-          resistance={1250}
-          returnDuration={1}
-        />
-      </div>
+      {/* DotGrid — só desktop; lazy import impede GSAP de ser baixado no mobile */}
+      {isDesktop && (
+        <Suspense fallback={null}>
+          <div className="fixed inset-0 z-0 pointer-events-none">
+            <DotGrid
+              dotSize={4}
+              gap={12}
+              baseColor="#141414"
+              activeColor="#551402"
+              proximity={160}
+              shockRadius={200}
+              shockStrength={1}
+              resistance={1250}
+              returnDuration={1}
+            />
+          </div>
+        </Suspense>
+      )}
 
       {/* Conteúdo da página acima do grid */}
       <main className="relative z-10 text-white">

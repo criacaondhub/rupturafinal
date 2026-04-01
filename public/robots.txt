@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rupturaFinal.com.br/sitemap.xml

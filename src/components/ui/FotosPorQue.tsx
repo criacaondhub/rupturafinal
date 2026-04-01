@@ -14,8 +14,10 @@ function StaggerFotos() {
     <div className="relative w-full aspect-square">
       {/* Centro — entra primeiro, sobe */}
       <motion.img
-        src="assets/marcelo-pq-centro.webp"
+        src="/assets/marcelo-pq-centro.webp"
         alt=""
+        width="1080"
+        height="941"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
@@ -24,8 +26,10 @@ function StaggerFotos() {
       />
       {/* Esquerda — entra junto com direita, vem da esquerda */}
       <motion.img
-        src="assets/marcelo-pq-esquerda.webp"
+        src="/assets/marcelo-pq-esquerda.webp"
         alt=""
+        width="1080"
+        height="941"
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: '-80px' }}
@@ -34,8 +38,10 @@ function StaggerFotos() {
       />
       {/* Direita — entra junto com esquerda, vem da direita */}
       <motion.img
-        src="assets/marcelo-pq-direita.webp"
+        src="/assets/marcelo-pq-direita.webp"
         alt=""
+        width="1080"
+        height="941"
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: '-80px' }}
@@ -76,9 +82,9 @@ function FloatImage({ src, delay, amplitude, speed }: { src: string; delay: numb
 function FloatFotos() {
   return (
     <div className="relative w-full aspect-square">
-      <FloatImage src="assets/marcelo-pq-centro.webp"   delay={0}    amplitude={6}  speed={0.6} />
-      <FloatImage src="assets/marcelo-pq-esquerda.webp" delay={0.35} amplitude={9}  speed={0.45} />
-      <FloatImage src="assets/marcelo-pq-direita.webp"  delay={0.35} amplitude={7}  speed={0.75} />
+      <FloatImage src="/assets/marcelo-pq-centro.webp"   delay={0}    amplitude={6}  speed={0.6} />
+      <FloatImage src="/assets/marcelo-pq-esquerda.webp" delay={0.35} amplitude={9}  speed={0.45} />
+      <FloatImage src="/assets/marcelo-pq-direita.webp"  delay={0.35} amplitude={7}  speed={0.75} />
     </div>
   )
 }
@@ -95,8 +101,10 @@ function ParallaxFotos() {
   return (
     <div ref={ref} className="relative w-full aspect-square">
       <motion.img
-        src="assets/marcelo-pq-centro.webp"
+        src="/assets/marcelo-pq-centro.webp"
         alt=""
+        width="1080"
+        height="941"
         style={{ y: yCentro }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -105,8 +113,10 @@ function ParallaxFotos() {
         className="absolute inset-0 w-full h-full object-contain will-change-transform"
       />
       <motion.img
-        src="assets/marcelo-pq-esquerda.webp"
+        src="/assets/marcelo-pq-esquerda.webp"
         alt=""
+        width="1080"
+        height="941"
         style={{ y: yEsquerda }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -115,8 +125,10 @@ function ParallaxFotos() {
         className="absolute inset-0 w-full h-full object-contain will-change-transform"
       />
       <motion.img
-        src="assets/marcelo-pq-direita.webp"
+        src="/assets/marcelo-pq-direita.webp"
         alt=""
+        width="1080"
+        height="941"
         style={{ y: yDireita }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

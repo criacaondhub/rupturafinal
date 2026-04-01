@@ -39,15 +39,17 @@ export default function Mecanismo() {
 
       {/* Imagem background — só desktop */}
       <img
-        src="assets/mecanismo-img.webp"
+        src="/assets/mecanismo-img.webp"
         alt=""
         className="hidden md:block absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
       />
 
       {/* Imagem mobile — topo, largura total */}
       <img
-        src="assets/mecanismo-img-mobile.webp"
+        src="/assets/mecanismo-img-mobile.webp"
         alt=""
+        width="900"
+        height="633"
         className="block md:hidden w-full"
       />
 

@@ -11,8 +11,10 @@ export default function Sobre() {
         <SectionReveal direction="left" className="w-full md:w-[38%] flex-shrink-0">
           <div className="relative aspect-[3/4] bg-surface border border-border overflow-hidden">
             <img
-              src="assets/marcelo-secondary.webp"
+              src="/assets/marcelo-secondary.webp"
               alt="Marcelo Toledo"
+              width="809"
+              height="1080"
               className="absolute inset-0 w-full h-full object-cover object-top"
               onError={(e) => {
                 // placeholder enquanto o asset não chega

@@ -10,15 +10,19 @@ export default function Hero() {
 
       {/* Background desktop — absoluto, só aparece md+ */}
       <img
-        src="assets/marcelo-hero.webp"
+        src="/assets/marcelo-hero.webp"
         alt="Marcelo Toledo"
+        fetchpriority="high"
         className="hidden md:block absolute inset-0 w-full h-full object-cover object-center"
       />
 
       {/* Imagem mobile — topo, largura total */}
       <img
-        src="assets/marcelo-hero-mobile.webp"
+        src="/assets/marcelo-hero-mobile.webp"
         alt="Marcelo Toledo"
+        fetchpriority="high"
+        width="1080"
+        height="989"
         className="block md:hidden w-full"
       />
 
@@ -28,12 +32,12 @@ export default function Hero() {
         {/* Pill */}
         <SectionReveal delay={0.1}>
           <div className="hidden md:flex justify-start mb-8">
-            <img src="assets/logo-ruptura.svg" alt="Ruptura Final" className="h-16 w-auto" />
+            <img src="/assets/logo-ruptura.svg" alt="Ruptura Final" width="750" height="422" className="h-16 w-auto" />
           </div>
         </SectionReveal>
 
         {/* Headline */}
-        <SectionReveal delay={0.2}>
+        <SectionReveal>
           <h1 className="font-title text-[8.5vw] md:text-[3.54vw] leading-[1.1] text-white mb-6 text-balance uppercase text-center md:text-left">
             <span className="text-primary">Sua motivação dá início às mudanças.</span>{' '}
             Sua estrutura interna explica porque você não continua.
