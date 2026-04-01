@@ -37,15 +37,22 @@ export default function Mecanismo() {
   return (
     <section className="relative bg-transparent overflow-hidden">
 
-      {/* Imagem — full section background */}
+      {/* Imagem background — só desktop */}
       <img
         src="assets/mecanismo-img.webp"
         alt=""
-        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+        className="hidden md:block absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+      />
+
+      {/* Imagem mobile — topo, largura total */}
+      <img
+        src="assets/mecanismo-img-mobile.webp"
+        alt=""
+        className="block md:hidden w-full"
       />
 
       {/* Conteúdo — lado esquerdo */}
-      <div className="relative z-10 py-14 md:py-32 pl-6 md:pl-[6vw] pr-6 w-full md:max-w-[42%]">
+      <div className="relative z-10 -mt-[80px] md:mt-0 py-14 md:py-32 pl-6 md:pl-[6vw] pr-6 w-full md:max-w-[42%]">
 
         <SectionReveal direction="left">
           <h2 className="font-title text-[8.5vw] md:text-[3.54vw] leading-[1.1] mb-4 text-balance uppercase text-center md:text-left">
