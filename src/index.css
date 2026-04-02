@@ -21,7 +21,6 @@
     background-color: #0A0A0A;
     color: #ffffff;
     overflow-x: hidden;
-    min-width: 1920px;
   }
 
   body {
@@ -64,6 +63,12 @@
   -webkit-backdrop-filter: blur(20px);
 }
 
+@media (min-width: 768px) {
+  .glass-form-inner {
+    padding: 1.66vw; /* 32px / 19.2 */
+  }
+}
+
 /* Brilho ambiente laranja sutil no canto */
 .glass-form-inner::before {
   content: '';
@@ -93,6 +98,13 @@
   padding: 0.85rem 1rem;
   outline: none;
   transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+@media (min-width: 768px) {
+  .glass-input {
+    font-size: 0.73vw; /* 14px / 19.2 */
+    padding: 0.7vw 0.83vw; /* ~13.5px / 16px */
+  }
 }
 
 .glass-input::placeholder {

@@ -14,33 +14,33 @@ export default function Hero() {
       <img
         src="/assets/marcelo-hero.webp"
         alt="Marcelo Toledo"
-        fetchpriority="high"
-        className="hidden md:block absolute inset-0 w-full h-full object-cover object-center"
+        fetchPriority="high"
+        className="hidden md:block absolute inset-0 w-[100vw] h-[100vh] object-cover object-center"
       />
 
       {/* Imagem mobile — topo, largura total */}
       <img
         src="/assets/marcelo-hero-mobile.webp"
         alt="Marcelo Toledo"
-        fetchpriority="high"
+        fetchPriority="high"
         width="1080"
         height="989"
         className="block md:hidden w-full"
       />
 
       {/* Conteúdo */}
-      <div className="relative z-10 flex flex-col justify-center px-6 py-10 md:px-[5vw] md:py-24 w-full md:w-[48%]">
+      <div className="relative z-10 flex flex-col justify-center px-6 py-12 md:px-[5vw] md:py-[5vw] w-full md:w-[48%] min-h-screen">
 
         {/* Pill */}
         <SectionReveal delay={0.1}>
-          <div className="hidden md:flex justify-start mb-8">
-            <img src="/assets/logo-ruptura.svg" alt="Ruptura Final" width="750" height="422" className="h-16 w-auto" />
+          <div className="hidden md:flex justify-start mb-[2.08vw]">
+            <img src="/assets/logo-ruptura.svg" alt="Ruptura Final" width="750" height="422" className="h-[3.33vw] w-auto" />
           </div>
         </SectionReveal>
 
         {/* Headline */}
         <SectionReveal>
-          <h1 className="font-title text-[8.5vw] md:text-[3.54vw] leading-[1.1] text-white mb-6 text-balance uppercase text-center md:text-left">
+          <h1 className="font-title text-[32px] md:text-[3.54vw] leading-[1.1] text-white mb-[1.25vw] text-balance uppercase text-center md:text-left">
             {content.headline.map((part, i) =>
               part.primary
                 ? <span key={i} className="text-primary">{part.text}</span>
@@ -51,7 +51,7 @@ export default function Hero() {
 
         {/* Subtítulo */}
         <SectionReveal delay={0.3} className={`${variant === 2 || variant === 3 ? 'max-w-[84%]' : 'max-w-[88%]'} md:max-w-none mx-auto md:mx-0`}>
-          <p className={`font-body text-white/70 text-base md:text-[1vw] leading-snug md:leading-relaxed tracking-tight md:tracking-normal mb-8 text-center md:text-left ${variant === 2 ? 'md:max-w-[30vw]' : variant === 3 ? 'md:max-w-[32vw]' : ''}`}>
+          <p className={`font-body text-white/70 text-base md:text-[1vw] leading-snug md:leading-relaxed tracking-tight md:tracking-normal mb-[2.08vw] text-center md:text-left ${variant === 2 ? 'md:max-w-[30vw]' : variant === 3 ? 'md:max-w-[32vw]' : ''}`}>
             {(content.subtitleMobile
               ? content.subtitleMobile.map((part, i) =>
                   part.bold

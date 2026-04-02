@@ -4,8 +4,8 @@ import SignatureToledo from '../ui/SignatureToledo'
 
 export default function Sobre() {
   return (
-    <section className="bg-transparent py-14 md:py-32 px-6 overflow-hidden">
-      <div className="max-w-full md:max-w-[78vw] mx-auto flex flex-col md:flex-row gap-12 md:gap-16 items-start">
+    <section className="bg-transparent py-14 md:py-[6.66vw] px-6 ">
+      <div className="max-w-full md:max-w-[78vw] mx-auto flex flex-col md:flex-row gap-12 md:gap-[4.16vw] items-start">
 
         {/* Foto — lado esquerdo (placeholder até o asset chegar) */}
         <SectionReveal direction="left" className="w-full md:w-[38%] flex-shrink-0">
@@ -33,7 +33,7 @@ export default function Sobre() {
 
           {/* Subtítulo */}
           <SectionReveal delay={0.1} direction="right">
-            <p className="font-body text-primary text-sm font-semibold uppercase tracking-widest text-center md:text-left">
+            <p className="font-body text-primary text-sm md:text-[0.73vw] font-semibold uppercase tracking-widest text-center md:text-left">
               Quem está por trás<br className="md:hidden" /> da imersão "Ruptura Final"?
             </p>
           </SectionReveal>

@@ -3,8 +3,8 @@ import FotosPorQue from '../ui/FotosPorQue'
 
 export default function PorQue() {
   return (
-    <section className="bg-transparent py-14 md:py-32 px-6">
-      <div className="max-w-full md:max-w-[80vw] mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
+    <section className="bg-transparent py-14 md:py-[6.66vw] px-6">
+      <div className="max-w-full md:max-w-[80vw] mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-[4.16vw]">
 
         {/* Fotos — lado esquerdo */}
         <div className="w-full md:w-1/2 flex-shrink-0">

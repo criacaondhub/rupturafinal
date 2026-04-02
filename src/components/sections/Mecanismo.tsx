@@ -54,7 +54,7 @@ export default function Mecanismo() {
       />
 
       {/* Conteúdo — lado esquerdo */}
-      <div className="relative z-10 -mt-[80px] md:mt-0 py-14 md:py-32 pl-6 md:pl-[6vw] pr-6 w-full md:max-w-[42%]">
+      <div className="relative z-10 -mt-[80px] md:mt-0 py-14 md:py-[6.66vw] pl-6 md:pl-[6vw] pr-6 w-full md:max-w-[42%]">
 
         <SectionReveal direction="left">
           <h2 className="font-title text-[8.5vw] md:text-[3.54vw] leading-[1.1] mb-4 text-balance uppercase text-center md:text-left">

@@ -49,8 +49,8 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null)
 
   return (
-    <section className="bg-transparent py-14 md:py-32 px-6">
-      <div className="max-w-2xl mx-auto">
+    <section className="bg-transparent py-14 md:py-[6.66vw] px-6">
+      <div className="max-w-2xl md:max-w-[35vw] mx-auto">
 
         {/* Título */}
         <SectionReveal>
@@ -68,7 +68,7 @@ export default function FAQ() {
                   <div key={i}>
                     <button
                       onClick={() => setOpen(open === i ? null : i)}
-                      className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left group cursor-pointer"
+                      className="w-full flex items-center justify-between gap-4 px-6 py-5 md:px-[1.25vw] md:py-[1.04vw] text-left group cursor-pointer"
                     >
                       <span className="font-body font-semibold text-white text-base md:text-[1vw] group-hover:text-primary transition-colors duration-200">
                         {item.question}

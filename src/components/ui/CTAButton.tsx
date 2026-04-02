@@ -7,14 +7,16 @@ interface CTAButtonProps {
   className?: string
   type?: 'button' | 'submit'
   glow?: boolean
+  disabled?: boolean
 }
 
-export default function CTAButton({ href, onClick, children, className = '', type = 'button', glow = false }: CTAButtonProps) {
+export default function CTAButton({ href, onClick, children, className = '', type = 'button', glow = false, disabled = false }: CTAButtonProps) {
   const base = [
-    'inline-block bg-primary text-white font-body font-bold uppercase tracking-widest text-sm px-8 py-4',
+    'inline-block bg-primary text-white font-body font-bold uppercase tracking-widest text-sm md:text-[0.73vw] px-8 py-4 md:px-[1.66vw] md:py-[0.83vw]',
     'rounded-none cursor-pointer select-none text-center',
     'cta-premium',
     glow ? 'cta-glow' : '',
+    disabled ? 'opacity-70 cursor-not-allowed grayscale-[0.3]' : '',
   ].filter(Boolean).join(' ')
 
   const motionProps = {
@@ -35,7 +37,7 @@ export default function CTAButton({ href, onClick, children, className = '', typ
   }
 
   return (
-    <motion.button type={type} onClick={onClick} className={`${base} ${className}`} {...motionProps}>
+    <motion.button type={type} onClick={onClick} className={`${base} ${className}`} disabled={disabled} {...motionProps}>
       {children}
     </motion.button>
   )

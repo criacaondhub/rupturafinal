@@ -214,9 +214,9 @@ export default function LeadForm() {
 
       <div className="glass-form-wrapper w-full">
         <div className="glass-form-inner">
-          <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4 w-full">
+          <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4 md:gap-[0.83vw] w-full">
 
-            <p className="font-body font-bold text-white text-base md:text-[1.4rem] text-center md:text-left leading-snug">
+            <p className="font-body font-bold text-white text-base md:text-[1.16vw] text-center md:text-left leading-snug">
               Preencha o formulário<br className="md:hidden" /> abaixo para se inscrever
             </p>
 
@@ -279,8 +279,8 @@ export default function LeadForm() {
               {submitting ? 'Aguarde...' : <>Garantir minha vaga<br className="md:hidden" /> na Ruptura Final</>}
             </CTAButton>
 
-            <p className="text-white/35 text-xs font-body text-center leading-relaxed pt-1">
-              <i className="fi fi-rr-lock text-[10px] leading-none mr-1" />
+            <p className="text-white/35 text-xs md:text-[0.625vw] font-body text-center leading-relaxed pt-1">
+              <i className="fi fi-rr-lock text-[10px] md:text-[0.52vw] leading-none mr-1" />
               Acesso 100% gratuito. Seus dados não serão compartilhados com terceiros.
             </p>
 
