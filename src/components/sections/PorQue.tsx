@@ -23,13 +23,9 @@ export default function PorQue() {
             </h2>
           </SectionReveal>
 
-          <SectionReveal delay={0.1} direction="right">
-            <div className="w-12 h-[2px] bg-primary mb-10 mx-auto md:mx-0" />
-          </SectionReveal>
-
           <SectionReveal delay={0.2} direction="right">
             <div className="font-body text-base md:text-[1vw] leading-relaxed space-y-6">
-              <blockquote className="max-w-[36rem] mx-auto md:mx-0 border-l-2 border-primary pl-6 text-white font-medium text-left italic">
+              <blockquote className="mx-auto md:mx-0 border-l-2 border-primary pl-6 text-white font-medium text-left italic">
                 <p>
                   <strong>"Motivação não sustenta mudança.</strong> Cada decisão adiada tem um{' '}
                   <strong>custo muito alto</strong> e seus comportamentos mostram o{' '}
@@ -37,10 +33,8 @@ export default function PorQue() {
                 </p>
               </blockquote>
 
-              <div className="w-12 h-[2px] bg-primary mx-auto md:mx-0" />
-
-              <p className="text-white/70 max-w-[30rem]">
-                Nesta imersão eu vou te mostrar como encontrar o seu caminho e despertar sua{' '}
+              <p className="text-white/70">
+                Nesta imersão eu vou te mostrar como encontrar o{' '}<br className="hidden md:block" />seu caminho e despertar sua{' '}
                 <strong className="text-white">melhor versão</strong>.
               </p>
             </div>

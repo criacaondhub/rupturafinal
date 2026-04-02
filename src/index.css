@@ -21,6 +21,7 @@
     background-color: #0A0A0A;
     color: #ffffff;
     overflow-x: hidden;
+    min-width: 1920px;
   }
 
   body {

@@ -98,7 +98,7 @@ const QUESTIONS: Question[] = [
   },
 ]
 
-const WHATSAPP_LINK = '#' // substituir pelo link real
+const WHATSAPP_LINK = 'https://sndflw.com/i/rupturafinal'
 
 // ─── Componente ───────────────────────────────────────────────────────────────
 
@@ -175,6 +175,7 @@ export default function Obrigado() {
       }
       setSubmitting(false)
       setDone(true)
+      setTimeout(() => { window.location.href = WHATSAPP_LINK }, 5000)
     }
   }
 
