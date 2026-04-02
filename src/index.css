@@ -151,6 +151,16 @@
   .cta-glow { animation: none; filter: drop-shadow(0 4px 12px rgba(252, 70, 18, 0.35)); }
 }
 
+/* ─── Modal Spinner ──────────────────────────────────────────── */
+@keyframes modal-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes modal-spin { from { transform: rotate(0deg); } to { transform: rotate(0deg); } }
+}
+
 /* ─── Signature Write Animation ─────────────────────────────── */
 .sig-text {
   stroke-dasharray: 4000;

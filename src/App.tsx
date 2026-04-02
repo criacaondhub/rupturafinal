@@ -75,7 +75,10 @@ function LandingPage() {
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />} />
+      <Route path="/"   element={<LandingPage />} />
+      <Route path="/v1" element={<LandingPage />} />
+      <Route path="/v2" element={<LandingPage />} />
+      <Route path="/v3" element={<LandingPage />} />
       <Route
         path="/obrigado"
         element={

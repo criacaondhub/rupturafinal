@@ -44,18 +44,19 @@ function SuccessModal({ lead, onRedirect }: SuccessModalProps) {
   useEffect(() => {
     const interval = setInterval(() => {
       setCount((c) => {
-        if (c <= 1) {
-          clearInterval(interval)
-          onRedirect()
-          return 0
-        }
+        if (c <= 1) { clearInterval(interval); return 0 }
         return c - 1
       })
     }, 1000)
     return () => clearInterval(interval)
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const dashoffset = CIRCUMFERENCE * (count / COUNTDOWN)
+  useEffect(() => {
+    if (count === 0) {
+      const t = setTimeout(() => onRedirect(), 3000)
+      return () => clearTimeout(t)
+    }
+  }, [count]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div
@@ -88,45 +89,40 @@ function SuccessModal({ lead, onRedirect }: SuccessModalProps) {
               FORMULÁRIO ENVIADO COM SUCESSO
             </h3>
             <p className="font-body text-white/70 text-sm leading-relaxed">
-              Você será redirecionado para entrar no{' '}
-              <strong className="text-white">Grupo VIP</strong> em{' '}
-              <strong className="text-white">{count} segundo{count !== 1 ? 's' : ''}</strong>
+              {count > 0 ? (
+                <>
+                  Você será redirecionado para entrar no{' '}
+                  <strong className="text-white">Grupo VIP</strong> em{' '}
+                  <strong className="text-white">{count} segundo{count !== 1 ? 's' : ''}</strong>
+                </>
+              ) : (
+                <>Redirecionando para o <strong className="text-white">Grupo VIP</strong>...</>
+              )}
             </p>
           </div>
 
-          {/* Countdown circular */}
-          <svg width="72" height="72" viewBox="0 0 72 72" style={{ transform: 'rotate(-90deg)' }}>
-            {/* Trilha */}
-            <circle
-              cx="36" cy="36" r={RADIUS}
-              fill="none"
-              stroke="rgba(34,197,94,0.15)"
-              strokeWidth="4"
-            />
-            {/* Progresso */}
-            <circle
-              cx="36" cy="36" r={RADIUS}
-              fill="none"
-              stroke="rgb(34,197,94)"
-              strokeWidth="4"
-              strokeLinecap="round"
-              strokeDasharray={CIRCUMFERENCE}
-              strokeDashoffset={dashoffset}
-              style={{ transition: 'stroke-dashoffset 0.9s linear' }}
-            />
-            {/* Número no centro */}
-            <text
-              x="36" y="36"
-              textAnchor="middle"
-              dominantBaseline="central"
-              fill="white"
-              fontSize="20"
-              fontWeight="700"
-              style={{ transform: 'rotate(90deg)', transformOrigin: '36px 36px', fontFamily: 'inherit' }}
+          {/* Spinner + número */}
+          <div style={{ position: 'relative', width: 72, height: 72 }}>
+            <svg
+              width="72" height="72" viewBox="0 0 72 72"
+              style={{ position: 'absolute', top: 0, left: 0, animation: 'modal-spin 1.2s linear infinite' }}
             >
-              {count}
-            </text>
-          </svg>
+              <circle cx="36" cy="36" r={RADIUS} fill="none" stroke="rgba(34,197,94,0.15)" strokeWidth="4" />
+              <circle
+                cx="36" cy="36" r={RADIUS}
+                fill="none"
+                stroke="rgb(34,197,94)"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeDasharray={`${CIRCUMFERENCE * 0.75} ${CIRCUMFERENCE * 0.25}`}
+              />
+            </svg>
+            <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <span style={{ color: 'white', fontSize: '20px', fontWeight: 700 }}>
+                {count > 0 ? count : ''}
+              </span>
+            </div>
+          </div>
 
           {/* Fallback CTA */}
           <button

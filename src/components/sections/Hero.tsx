@@ -1,10 +1,12 @@
+import { useLocation } from 'react-router-dom'
 import { heroVariants, HERO_VARIANT } from '../../config/hero'
 import LeadForm from '../ui/LeadForm'
 import SectionReveal from '../ui/SectionReveal'
 
-const content = heroVariants[HERO_VARIANT]
-
 export default function Hero() {
+  const { pathname } = useLocation()
+  const variant = pathname === '/v2' ? 2 : pathname === '/v3' ? 3 : pathname === '/v1' ? 1 : HERO_VARIANT
+  const content = heroVariants[variant]
   return (
     <section id="hero" className="relative flex flex-col md:flex-row min-h-screen overflow-hidden">
 
@@ -39,8 +41,11 @@ export default function Hero() {
         {/* Headline */}
         <SectionReveal>
           <h1 className="font-title text-[8.5vw] md:text-[3.54vw] leading-[1.1] text-white mb-6 text-balance uppercase text-center md:text-left">
-            <span className="text-primary">Sua motivação dá início às mudanças.</span>{' '}
-            Sua estrutura interna explica porque você não continua.
+            {content.headline.map((part, i) =>
+              part.primary
+                ? <span key={i} className="text-primary">{part.text}</span>
+                : <span key={i}>{part.text}</span>
+            )}
           </h1>
         </SectionReveal>
 
