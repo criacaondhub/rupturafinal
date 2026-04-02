@@ -322,6 +322,20 @@ export default function Obrigado() {
                         </div>
                       )}
 
+                      {/* Botões */}
+                      <div className={`flex gap-3 ${step > 0 ? 'flex-row' : ''}`}>
+                        {step > 0 && (
+                          <motion.button
+                            type="button"
+                            onClick={() => setStep((s) => s - 1)}
+                            whileHover={{ scale: 1.015 }}
+                            whileTap={{ scale: 0.97 }}
+                            transition={{ duration: 0.18 }}
+                            className="bg-white/10 border border-white/20 text-white/70 font-body font-bold uppercase tracking-widest text-sm px-6 py-4 hover:bg-white/15 hover:text-white transition-colors"
+                          >
+                            Voltar
+                          </motion.button>
+                        )}
                       {/* Botão avançar */}
                       <motion.button
                         type="button"
@@ -331,12 +345,14 @@ export default function Obrigado() {
                         whileTap={canAdvance() ? { scale: 0.97 } : {}}
                         transition={{ duration: 0.18 }}
                         className={[
-                          'w-full bg-primary text-white font-body font-bold uppercase tracking-widest text-sm px-8 py-4 text-center cta-premium',
+                          step > 0 ? 'flex-1' : 'w-full',
+                          'bg-primary text-white font-body font-bold uppercase tracking-widest text-sm px-8 py-4 text-center cta-premium',
                           !canAdvance() || submitting ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer',
                         ].join(' ')}
                       >
                         {submitting ? 'Aguarde...' : step < QUESTIONS.length - 1 ? 'Próxima' : 'Enviar Respostas'}
                       </motion.button>
+                      </div>
                     </motion.div>
                   </AnimatePresence>
                 </div>
