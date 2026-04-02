@@ -50,8 +50,8 @@ export default function Hero() {
         </SectionReveal>
 
         {/* Subtítulo */}
-        <SectionReveal delay={0.3} className="max-w-[88%] md:max-w-none mx-auto md:mx-0">
-          <p className="font-body text-white/70 text-base md:text-[1vw] leading-snug md:leading-relaxed tracking-tight md:tracking-normal mb-8 text-center md:text-left">
+        <SectionReveal delay={0.3} className={`${variant === 2 || variant === 3 ? 'max-w-[84%]' : 'max-w-[88%]'} md:max-w-none mx-auto md:mx-0`}>
+          <p className={`font-body text-white/70 text-base md:text-[1vw] leading-snug md:leading-relaxed tracking-tight md:tracking-normal mb-8 text-center md:text-left ${variant === 2 ? 'md:max-w-[30vw]' : variant === 3 ? 'md:max-w-[32vw]' : ''}`}>
             {(content.subtitleMobile
               ? content.subtitleMobile.map((part, i) =>
                   part.bold

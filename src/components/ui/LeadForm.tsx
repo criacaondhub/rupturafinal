@@ -42,6 +42,11 @@ function SuccessModal({ lead, onRedirect }: SuccessModalProps) {
   const [count, setCount] = useState(COUNTDOWN)
 
   useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = '' }
+  }, [])
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setCount((c) => {
         if (c <= 1) { clearInterval(interval); return 0 }
@@ -60,17 +65,18 @@ function SuccessModal({ lead, onRedirect }: SuccessModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center px-6"
+      className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden px-3 sm:px-6"
       style={{ background: 'rgba(0,0,0,0.88)' }}
     >
       <div
-        className="relative w-full max-w-sm p-px"
+        className="relative w-full p-px overflow-hidden"
         style={{
+          maxWidth: 'min(384px, calc(100vw - 1.5rem))',
           background: 'linear-gradient(135deg, rgba(34,197,94,0.9) 0%, rgba(34,197,94,0.3) 40%, rgba(255,255,255,0.06) 70%, transparent 100%)',
         }}
       >
         <div
-          className="flex flex-col items-center gap-6 px-8 py-10 text-center"
+          className="flex flex-col items-center gap-6 px-5 py-8 sm:px-8 sm:py-10 text-center overflow-hidden"
           style={{ background: 'rgba(10,10,10,0.94)', backdropFilter: 'blur(20px)' }}
         >
           {/* Check grande */}
@@ -85,14 +91,14 @@ function SuccessModal({ lead, onRedirect }: SuccessModalProps) {
 
           {/* Título + subtítulo */}
           <div className="flex flex-col gap-2">
-            <h3 className="font-title text-2xl uppercase" style={{ color: 'rgb(34,197,94)' }}>
-              FORMULÁRIO ENVIADO COM SUCESSO
+            <h3 className="font-title text-3xl uppercase" style={{ color: 'rgb(34,197,94)' }}>
+              FORMULÁRIO ENVIADO<br /> COM SUCESSO
             </h3>
             <p className="font-body text-white/70 text-sm leading-relaxed">
               {count > 0 ? (
                 <>
-                  Você será redirecionado para entrar no{' '}
-                  <strong className="text-white">Grupo VIP</strong> em{' '}
+                  Você será redirecionado para entrar<br className="md:hidden" />{' '}
+                  no <strong className="text-white">Grupo VIP</strong> em{' '}
                   <strong className="text-white">{count} segundo{count !== 1 ? 's' : ''}</strong>
                 </>
               ) : (
@@ -209,6 +215,10 @@ export default function LeadForm() {
       <div className="glass-form-wrapper w-full">
         <div className="glass-form-inner">
           <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4 w-full">
+
+            <p className="font-body font-bold text-white text-base md:text-[1.4rem] text-center md:text-left leading-snug">
+              Preencha o formulário<br className="md:hidden" /> abaixo para se inscrever
+            </p>
 
             <div>
               <input

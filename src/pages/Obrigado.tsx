@@ -59,10 +59,11 @@ const QUESTIONS: Question[] = [
     label: 'Qual sua renda mensal?',
     type: 'select',
     options: [
-      'Até R$ 2.000 ao mês',
-      'Entre R$ 2.000 a R$ 4.000 ao mês',
-      'Entre R$ 4.000 e R$ 7.000 ao mês',
-      'Mais de R$ 7.000 ao mês',
+      'Até R$ 2.000',
+      'De R$ 2.000 a R$ 4.000',
+      'De R$ 4.000 a R$ 8.000',
+      'De R$ 8.000 a R$ 16.000',
+      'Mais de R$ 16.000',
     ],
   },
   {
@@ -188,7 +189,7 @@ export default function Obrigado() {
     if (e.key === 'Enter' && question.type !== 'multi') handleNext()
   }
 
-  const progressPct = ((step + 1) / QUESTIONS.length) * 100
+  const progressPct = Math.min(((step + 1) / QUESTIONS.length) * 100, 95)
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center px-6 py-12 overflow-hidden">
@@ -219,8 +220,8 @@ export default function Obrigado() {
             >
               {/* Título + subtítulo */}
               <div className="text-center flex flex-col gap-3">
-                <h1 className="font-title text-[5.5vw] md:text-[4rem] uppercase text-white leading-tight whitespace-nowrap">
-                  SIGA O PRÓXIMO PASSO PARA CONCLUIR A SUA{' '}
+                <h1 className="font-title text-[9vw] md:text-[4rem] uppercase text-white leading-tight md:whitespace-nowrap">
+                  SIGA O PRÓXIMO PASSO PARA<br className="md:hidden" /> CONCLUIR A SUA{' '}
                   <span className="text-primary">INSCRIÇÃO.</span>
                 </h1>
                 <p className="font-body text-white/70 text-sm md:text-base leading-relaxed">
